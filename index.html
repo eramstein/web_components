@@ -1,0 +1,29 @@
+
+    <script src="webcomp.js"></script>
+    
+    <wdg-compound item="aspirin"></wdg-compound>
+
+    <wdg-smiles-viz smiles="CC(=O)OC1=CC=CC=C1C(=O)O"></wdg-smiles-viz>
+
+    <itm-compound item="aspirin">
+        <div>{{drugbank.toxicity}}</div>
+    </itm-compound>
+
+    <itm-compound item="aspirin">
+        <div>{{ChEMBL.smiles}}</div>
+        <wdg-smiles-viz smiles="{{ChEMBL.smiles}}"></wdg-smiles-viz>
+    </itm-compound>
+
+    <lst-compound-pharmacology item="aspirin" filter-for-type="Potency">
+        <table>
+            <tr ng-repeat="item in items">
+                <td>{{item.activity_type}}</td>
+                <td>{{item.publishedValue}} {{item.publishedUnits}}</td>
+                <td>{{item.activityComment}}</td>
+                <td>{{item.hasAssay.assayOrganismName}}</td>
+            </tr>
+        </table>
+    </lst-compound-pharmacology>
+
+
+  
